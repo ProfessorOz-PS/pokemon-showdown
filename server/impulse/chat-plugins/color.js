@@ -137,11 +137,11 @@ exports.commands = {
     let targetUser = target ? target : user.name;
     this.sendReplyBox(
       "The hex code of " +
-        Server.nameColor(targetUser, true) +
+        Color.nameColor(targetUser, true) +
         ' is: <font color="' +
-        Server.hashColor(targetUser) +
+        Color.nameColor(targetUser) +
         '"><b>' +
-        Server.hashColor(targetUser) +
+        Color.nameColor(targetUser) +
         "</b></font>"
     );
   }
@@ -323,7 +323,7 @@ function MD5(e) {
 let colorCache = {};
 
 // hashColor function
-Color.hashColor = function(name) {
+Color.nameColor = function(name) {
   name = toID(name);
   if (customColors[name]) return customColors[name];
   if (colorCache[name]) return colorCache[name];
