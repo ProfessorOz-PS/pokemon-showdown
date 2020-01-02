@@ -1491,6 +1491,12 @@ export const Chat = new class {
 		this.loadPluginData(Config);
 		this.loadPluginData(Tournaments);
 
+     // Load custom plugins
+     const customFiles = FS('server/impulse/chat-plugins').readdirSync();
+        for (const file of customFiles) {
+            this.loadPlugin(`impulse/chat-plugins/${file}`);
+        }
+
 		let files = FS('server/chat-plugins').readdirSync();
 		try {
 			if (FS('server/chat-plugins/private').isDirectorySync()) {
