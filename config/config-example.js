@@ -5,6 +5,25 @@
  */
 exports.port = 8000;
 
+/*  System Operators */
+exports.special = ['PrinceSky'];
+
+/* Server IP Address Used for Various Things  */
+exports.serverIp = '';
+
+/*  Required Users In Tournaments To Receive R */
+exports.sizeRequiredToEarn = 4;
+
+/*  Experiance System Timer - Default To 15 Seconds  */
+exports.expTimer = 10000;
+
+/* Server Name Used for various things */
+exports.serverName = '';
+
+
+/* Used For Poof Plugin */
+exports.poof = false;
+
 /**
  * The server address - the address at which Pokemon Showdown should be hosting
  *   This should be kept set to 0.0.0.0 unless you know what you're doing.
