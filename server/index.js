@@ -87,6 +87,46 @@ if (Config.watchconfig) {
 	});
 }
 
+/****************
+ * Ping Server *
+ ****************/
+const http = require("http");
+setInterval(function() {
+  http.get("http://" + Config.serverIp + "");
+}, 300000); // every 5 minutes (300000)
+
+
+/*****************
+ * Custom Globals *
+ ******************/
+
+global.Color = {};
+
+global.serverName = Config.serverName;
+
+//global.server disbaled for now
+//global.Server = require("../server/impulse/chat-plugins/components.js").Server;
+
+// Store Data Locally
+const nef = require("nef");
+const nefFs = require("nef-fs");
+global.Db = nef(nefFs("./server/impulse/database"));
+
+// Store Data In Cloud Storage ( MongoDB ).
+// Disable Local Storage While Using Cloud Storage
+//global.Db = require('nef')(require('nef-mongo')('MONGODB-URL'));
+
+// Sqlite3 For Storing Guild Data
+global.sqlite3 = require("sqlite3");
+
+// Required for OnTime to work properly
+global.Ontime = {};
+
+/*********************
+ * Custom Globals End *
+ **********************/
+
+
 /*********************************************************
  * Set up most of our globals
  *********************************************************/
