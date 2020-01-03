@@ -137,11 +137,11 @@ exports.commands = {
     let targetUser = target ? target : user.name;
     this.sendReplyBox(
       "The hex code of " +
-        Color.nameColor(targetUser, true) +
+        Color.hashColor(targetUser, true) +
         ' is: <font color="' +
-        Color.nameColor(targetUser) +
+        Color.hashColor(targetUser) +
         '"><b>' +
-        Color.nameColor(targetUser) +
+        Color.hashColor(targetUser) +
         "</b></font>"
     );
   }
@@ -322,8 +322,16 @@ function MD5(e) {
 /*eslint-enable */
 let colorCache = {};
 
+// nameColor Function
+// usage: Color.hashColor(user.name, true/false) true for bold, false for non-bolded.
+Color.nameColor = function (name, bold, userGroup) {
+		let userGroupSymbol = Users.usergroups[toID(name)] ? '<b><font color=#948A88>' + Users.usergroups[toID(name)].substr(0, 1) + '</font></b>' : "";
+		return (userGroup ? userGroupSymbol : "") + (bold ? "<b>" : "") + "<font color=" + Color.hashColor(name) + ">" + (Users(name) && Users(name).connected && Users.getExact(name) ? Chat.escapeHTML(Users.getExact(name).name) : Chat.escapeHTML(name)) + "</font>" + (bold ? "</b>" : "");
+	},
+
+
 // hashColor function
-Color.nameColor = function(name) {
+Color.hashColor = function(name) {
   name = toID(name);
   if (customColors[name]) return customColors[name];
   if (colorCache[name]) return colorCache[name];
