@@ -14,7 +14,8 @@
     "request-image-size": "^2.1.0",
     "probe-image-size": "^5.0.0",
     "sockjs": "0.3.19",
-    "sucrase": "^3.10.1"
+    "sucrase": "^3.10.1",
+    "snyk": "^1.316.1"
   },
   "optionalDependencies": {
     "cloud-env": "^0.2.3",
@@ -36,7 +37,9 @@
     "pretest": "npm run lint && npm run build",
     "test": "mocha",
     "posttest": "npm run tsc",
-    "fulltest": "npm run pretest && npm run tsc && mocha -R spec -g \".*\""
+    "fulltest": "npm run pretest && npm run tsc && mocha -R spec -g \".*\"",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "husky": {
     "hooks": {
@@ -80,5 +83,6 @@
     "smogon": "^0.0.5",
     "tslint": "^5.20.0",
     "typescript": "^3.7.2"
-  }
+  },
+  "snyk": true
 }
