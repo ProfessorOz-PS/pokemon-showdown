@@ -13,7 +13,7 @@
     "request": "^2.83.0",
     "request-image-size": "^2.1.0",
     "probe-image-size": "^5.0.0",
-    "sockjs": "0.3.19",
+    "sockjs": "0.3.20",
     "sucrase": "^3.10.1"
   },
   "optionalDependencies": {
