@@ -9,7 +9,7 @@
     "nef-fs": "^1.0.0",
     "nef-mongo": "^1.0.1",
     "origindb": "^2.6.1",
-    "sqlite3": "^4.0.2",
+    "sqlite3": "^5.0.3",
     "request": "^2.83.0",
     "request-image-size": "^2.1.0",
     "probe-image-size": "^5.0.0",
